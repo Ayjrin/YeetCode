@@ -5,10 +5,29 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 # find the sum of the even-valued terms.
 
-def solution():
+
+# CURRENT ERROR: ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+def fibby():
     lesser = 1
     greater = 2
 
-    fib = [1, 2]
+    fib = []
 
-    
+    for i in range(4_000_00):
+        temp = lesser
+        lesser = greater
+        greater = temp + lesser
+        fib.append(temp)
+
+    return fib
+
+def even(fib):
+    fib_even = 0
+    for i in range(len(fib)):
+        if fib[i] % 2 == 0:
+            fib_even += fib[i]
+
+    print(fib_even)
+
+
+even(fibby())
