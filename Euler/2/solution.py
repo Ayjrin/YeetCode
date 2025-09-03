@@ -5,16 +5,16 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 # find the sum of the even-valued terms.
 import sys
-sys.set_int_max_str_digits(5000)
+sys.set_int_max_str_digits(500000)
 
-# CURRENT ERROR: ValueError: Exceeds the limit (5000 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
 def fibby():
     lesser = 1
     greater = 2
 
     fib = []
+    temp=0
 
-    for i in range(4_000_00):
+    while (temp <= 4_000_000):
         temp = lesser
         lesser = greater
         greater = temp + lesser
@@ -28,7 +28,7 @@ def even(fib):
         if fib[i] % 2 == 0:
             fib_even += fib[i]
 
-    print(fib_even)
-
+    with open("solution.txt", "w") as f:
+        f.write(str(fib_even))
 
 even(fibby())
