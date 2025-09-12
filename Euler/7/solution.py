@@ -2,7 +2,7 @@
 # What is the 10,001st prime number?
 
 #notes:
-# the quesetion really is how do you find a prime. the O(n^2) way is to just have a nested for loop. lets see if that will solve it before we prematurely optemize
+# the quesetion really is how do you find a prime.
 
 primes = []
 

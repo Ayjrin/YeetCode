@@ -13,9 +13,41 @@
    #   15: 1,3,5,15
    #   21: 1,3,7,21
    #   28: 1,2,4,7,14,28
+   #   36: 1,2,3,4,6,9,12,18,36
 
    # We can see that 28 is the first triangle number to have over five
    # divisors.
 
    # What is the value of the first triangle number to have over five hundred
    # divisors?
+import time
+
+def find_tri(target) -> int:
+    return (target * (target +1)) // 2
+
+def factor(tri=0):
+    tri_factors= []
+    for i in range(1, int(tri**0.5) + 1):
+       if tri%i == 0:
+           tri_factors.append(i)
+           if i != tri // i and (tri // i) not in tri_factors: tri_factors.append(tri // i)
+
+    return tri_factors
+
+def count_divisors(solution_target):
+    length = 0
+    j=1
+    tri_factors = []
+    while length <= solution_target:
+        tri_factors = factor(find_tri(j))
+        length = len(tri_factors)
+        if length > solution_target:
+            print(find_tri(j))
+            print(len(tri_factors))
+            #print(tri_factors)
+        j += 1
+
+start = time.time()
+count_divisors(500)
+elapsed = (time.time() - start)
+print(str(elapsed) + " seconds")
