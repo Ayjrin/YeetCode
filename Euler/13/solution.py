@@ -104,5 +104,4 @@ num = [
     "53503534226472524250874054075591789781264330331690"
 ]
 
-total = sum(int(n) for n in num)
 print(str(sum(int(n) for n in num))[:10])
