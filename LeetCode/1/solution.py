@@ -4,7 +4,6 @@
 
 # You can return the answer in any order.
 
- 
 
 # Example 1:
 
@@ -22,7 +21,6 @@
 # Input: nums = [3,3], target = 6
 # Output: [0,1]
 
- 
 
 # Constraints:
 
@@ -31,10 +29,18 @@
 #     -109 <= target <= 109
 #     Only one valid answer exists.
 
- 
+
 # Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
 
 
+def n_squared():
+    nums = [2, 7, 11, 15]
+    target = 9
 
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
+    for i in range(len(nums)):
+        for j in range(i, len(nums)):
+            if nums[i] + nums[j] == target:
+                return [i, j]
+
+
+print(n_squared())
